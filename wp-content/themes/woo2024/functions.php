@@ -204,3 +204,17 @@ if ( ! function_exists( 'woo2024_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'woo2024_pattern_categories' );
+
+/*-----------------------------------------------------------
+Enqueue Styles   
+------------------------------------------------------------*/
+
+if(!function_exists('fse_rad')) :
+
+    function fse_rad() {
+        wp_enqueue_style('rad-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
+    }
+    
+endif;
+
+add_action('wp_enqueue_scripts', 'fse_rad');
